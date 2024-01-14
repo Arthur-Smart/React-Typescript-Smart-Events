@@ -1,0 +1,14 @@
+.signup{
+    height:100vh;
+}
+
+.warning{
+    width:35%;
+}
+
+.signup-form{
+    width:clamp(300px, 35%, 700px);
+    /* box-shadow: 5px 8px 10px -7px rgba(0, 0, 0, 0.38);
+        -webkit-box-shadow: 5px 8px 10px -7px rgba(0, 0, 0, 0.38);
+        -moz-box-shadow: 5px 8px 10px -7px rgba(0, 0, 0, 0.38); */
+}

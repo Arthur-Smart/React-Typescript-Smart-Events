@@ -2,7 +2,7 @@ import "./navbar.css";
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-[#E5E6E9] flex items-center justify-center">
+    <nav className="navbar bg-[#E5E6E9] flex items-center justify-center">
       <div className="container flex items-center justify-between">
         <div>
           <p className="text-xl text-[#492F6A] font-bold cursor-pointer">
@@ -20,7 +20,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 

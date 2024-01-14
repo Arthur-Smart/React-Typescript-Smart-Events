@@ -8,6 +8,8 @@ const Events = () => {
       <Event />
       <Event />
       <Event />
+      <Event />
+      <Event />
     </div>
   );
 };

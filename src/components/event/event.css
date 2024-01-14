@@ -12,3 +12,19 @@
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
 }
+
+.health{
+    background-color: #add8e6;
+}
+
+.business{
+    background-color: #e6e6fa;
+}
+
+.entertainment{
+    background-color: #f7cfd6;
+}
+
+.technology{
+    background-color: #cde6c7;
+}

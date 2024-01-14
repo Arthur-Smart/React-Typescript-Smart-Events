@@ -6,6 +6,8 @@ import { IEvent } from "../../interfaces/EventInterface";
 
 const Events = () => {
   const [events, setEvents] = useState<IEvent[]>([]);
+  console.log(events);
+
   useEffect((): void => {
     const fetchEvents = async (): Promise<void> => {
       const { data } = await AxiosRequest.get("events/");

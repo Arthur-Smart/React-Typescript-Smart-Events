@@ -6,9 +6,10 @@ import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import EventPage from "./pages/eventpage/EventPage";
 import ProtectedRoute from "./ProtectedRoute";
+import SignUp from "./pages/signup/SignUp";
 
 function App() {
-  const user: boolean = false;
+  const user: boolean = true;
   return (
     <>
       <BrowserRouter>
@@ -22,6 +23,10 @@ function App() {
           <Route
             path="/signin"
             element={<SignIn />}
+          />
+          <Route
+            path="/signup"
+            element={<SignUp />}
           />
           <Route
             path="/event/:id"

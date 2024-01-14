@@ -2,5 +2,5 @@
     width: 100%;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-        grid-gap: 4px;
+        grid-gap: 7px;
 }

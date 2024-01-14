@@ -1,6 +1,13 @@
+// import { useEffect } from "react";
 import "./eventpage.css";
+// import AxiosRequest from "../../AxiosRequest";
 
 const EventPage = () => {
+  //   useEffect(():void => {
+  //     const fetchEvent = async ():Promise<void> => {
+  // const {data} = await AxiosRequest.get('/')
+  //     }
+  //   })
   return (
     <main className="event-page w-full flex flex-col items-center justify-center">
       <section className="event-page-image__container">

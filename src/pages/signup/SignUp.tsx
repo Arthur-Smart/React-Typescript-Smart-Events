@@ -1,6 +1,24 @@
+import { useState } from "react";
 import "./signup.css";
 
 const SignUp = () => {
+  const [authDetails, setAuthDetails] = useState({
+    name: "",
+    email: "",
+    password: "",
+    password2: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setAuthDetails((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSignup = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    console.log(authDetails);
+  };
+
   return (
     <section className="signup w-full flex flex-col items-center justify-center">
       <h1 className="font-bold text-[#333333] text-xl">Sign up</h1>
@@ -18,8 +36,10 @@ const SignUp = () => {
           <i className="fa-solid fa-user text-xl text-[#9A9A9A]"></i>
           <input
             type="text"
+            name="name"
             placeholder="Enter name"
             className="w-11/12 ml-3 outline-0"
+            onChange={handleChange}
           />
         </div>
 
@@ -30,8 +50,10 @@ const SignUp = () => {
           <i className="fa-solid fa-envelope text-xl text-[#9A9A9A]"></i>
           <input
             type="text"
+            name="email"
             placeholder="Enter email"
             className="w-11/12 ml-3 outline-0"
+            onChange={handleChange}
           />
         </div>
 
@@ -42,8 +64,10 @@ const SignUp = () => {
           <i className="fa-solid fa-lock text-xl text-[#9A9A9A]"></i>
           <input
             type="password"
+            name="password"
             placeholder="Enter password"
             className="w-11/12 ml-3 outline-0"
+            onChange={handleChange}
           />
         </div>
 
@@ -54,12 +78,18 @@ const SignUp = () => {
           <i className="fa-solid fa-lock text-xl text-[#9A9A9A]"></i>
           <input
             type="password"
+            name="password2"
             placeholder="Confirm password"
             className="w-11/12 ml-3 outline-0"
+            onChange={handleChange}
           />
         </div>
 
-        <button className="rounded-md w-full py-2 px-3 bg-[#849BF6] text-white mt-6">
+        <button
+          type="submit"
+          onClick={handleSignup}
+          className="rounded-md w-full py-2 px-3 bg-[#849BF6] text-white mt-6"
+        >
           Sign up
         </button>
         <p className="mt-3 text-[#9A9A9A]">

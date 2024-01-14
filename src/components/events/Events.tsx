@@ -6,7 +6,6 @@ import { IEvent } from "../../interfaces/EventInterface";
 
 const Events = () => {
   const [events, setEvents] = useState<IEvent[]>([]);
-  console.log(events);
   useEffect((): void => {
     const fetchEvents = async (): Promise<void> => {
       const { data } = await AxiosRequest.get("events/");
@@ -17,12 +16,12 @@ const Events = () => {
 
   return (
     <div className="events-wrapper w-full">
-      <Event />
-      <Event />
-      <Event />
-      <Event />
-      <Event />
-      <Event />
+      {events.map((event) => (
+        <Event
+          key={event._id}
+          {...event}
+        />
+      ))}
     </div>
   );
 };

@@ -8,7 +8,7 @@ export interface IEvent {
     isFree:boolean;
     location:string;
     organizer:string;
-    price:string;
+    price:string | number;
     title:string;
     venue:string;
     _id:string;

@@ -1,0 +1,14 @@
+.event-container{
+    height:45vh;
+    box-shadow: 5px 8px 10px -7px rgba(0, 0, 0, 0.38);
+        -webkit-box-shadow: 5px 8px 10px -7px rgba(0, 0, 0, 0.38);
+        -moz-box-shadow: 5px 8px 10px -7px rgba(0, 0, 0, 0.38);
+}
+
+.event-image__home{
+    height:60%;
+    width:100%;
+    object-fit: cover;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}

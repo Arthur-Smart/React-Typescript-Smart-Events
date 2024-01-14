@@ -1,3 +1,4 @@
+import Events from "../../components/events/Events";
 import "./home.css";
 
 const Home = () => {
@@ -16,7 +17,7 @@ const Home = () => {
           experience at the Smart Events Hub.
         </p>
       </section>
-
+      {/* Filter section */}
       <section className="container mt-2">
         <div className="h-px bg-[#C5C5C5] w-full"></div>
         <div className="filter-btn__tab py-2 flex items-center justify-between">
@@ -47,6 +48,11 @@ const Home = () => {
           </div>
         </div>
         <div className="h-px bg-[#C5C5C5] w-full"></div>
+      </section>
+
+      {/* Events section */}
+      <section className="container py-4">
+        <Events />
       </section>
     </div>
   );

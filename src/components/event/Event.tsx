@@ -18,8 +18,27 @@ const Event = () => {
             Business
           </button>
         </div>
-        <div>
-          <p></p>
+        <div className="flex items-center justify-between mt-2">
+          <p className="text-gray-400 text-[12px]">
+            <i className="fa-solid fa-calendar-days"></i> 20, Jan 2024
+          </p>
+          <p className="text-gray-400 text-[12px]">
+            <i className="fa-solid fa-location-dot"></i> Nairobi Social Hall
+          </p>
+          <p className="text-gray-400 text-[12px]">
+            <i className="fa-regular fa-clock"></i> 9:00am
+          </p>
+        </div>
+        <div className="mt-2 flex items-center justify-between">
+          <p className="text-gray-400 text-[12px] font-semibold">
+            <i className="fa-solid fa-user"></i> Organized By:Stephen Maina
+          </p>
+          <button className="bg-[#81F591] rounded-full py-[5px] px-4">
+            <p className="text-[14px] text-white">
+              {" "}
+              Free <i className="fa-solid fa-certificate"></i>
+            </p>
+          </button>
         </div>
       </div>
     </div>

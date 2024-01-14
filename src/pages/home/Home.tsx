@@ -4,7 +4,7 @@ import "./home.css";
 const Home = () => {
   return (
     <div className="w-full flex flex-col items-center justify-center py-6">
-      <section className="container">
+      <section className="container py-4">
         <h1 className="font-bold text-transparent text-3xl bg-clip-text bg-gradient-to-r from-indigo-900 to-blue-600">
           Smart Events Hub.
         </h1>

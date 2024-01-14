@@ -1,8 +1,9 @@
 import { useState } from "react";
 import "./signup.css";
+import { IAuth } from "../../interfaces/AuthInterface";
 
 const SignUp = () => {
-  const [authDetails, setAuthDetails] = useState({
+  const [authDetails, setAuthDetails] = useState<IAuth>({
     name: "",
     email: "",
     password: "",

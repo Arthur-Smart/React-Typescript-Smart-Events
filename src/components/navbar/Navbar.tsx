@@ -5,6 +5,13 @@ import { ThemeContext } from "../../context/ThemeContext";
 
 const Navbar = () => {
   const { state, dispatch } = useContext(ThemeContext);
+  const user = JSON.parse(localStorage.getItem("@auth")!);
+
+  // Logout a user
+  const handleLogout = () => {
+    localStorage.removeItem("@auth");
+    window.location.replace("/");
+  };
   return (
     <nav
       className={
@@ -30,11 +37,20 @@ const Navbar = () => {
             )}
           </div>
           <div className="ml-4">
-            <Link to="/signin">
-              <button className="bg-white text-[#492F6A] px-6 py-2 rounded-md">
-                Sign in
+            {user ? (
+              <button
+                onClick={handleLogout}
+                className="bg-[#ff7f6e] text-white px-6 py-2 rounded-md"
+              >
+                logout
               </button>
-            </Link>
+            ) : (
+              <Link to="/signin">
+                <button className="bg-white text-[#492F6A] px-6 py-2 rounded-md">
+                  Sign in
+                </button>
+              </Link>
+            )}
           </div>
         </div>
       </div>

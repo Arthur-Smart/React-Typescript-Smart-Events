@@ -5,7 +5,6 @@ import { ThemeContext } from "../../context/ThemeContext";
 
 const Home = () => {
   const { state } = useContext(ThemeContext);
-  console.log(state);
   return (
     <div className="w-full flex flex-col items-center justify-center py-6">
       <section className="container py-4">

@@ -11,7 +11,9 @@ import { ThemeContext } from "./context/ThemeContext";
 import { useContext } from "react";
 
 function App() {
-  const user: boolean = true;
+  // const user: string = JSON.parse(localStorage.getItem("@auth") || "{}").token;
+  const user: string = JSON.parse(localStorage.getItem("@auth")!);
+
   const { state } = useContext(ThemeContext);
   return (
     <main className={state.isDarkMode === true ? "dark" : ""}>

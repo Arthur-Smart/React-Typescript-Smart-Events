@@ -2,13 +2,11 @@ import { useContext, useState } from "react";
 import "./signin.css";
 import { IAuth } from "../../interfaces/AuthInterface";
 import AxiosRequest from "../../AxiosRequest";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ThemeContext } from "../../context/ThemeContext";
 
 const SignIn = () => {
   const { state } = useContext(ThemeContext);
-
-  const navigate = useNavigate();
 
   const [authDetails, setAuthDetails] = useState<IAuth>({
     email: "",
@@ -31,7 +29,8 @@ const SignIn = () => {
       });
 
       localStorage.setItem("@auth", JSON.stringify(data));
-      navigate("/");
+      // navigate("/");
+      window.location.replace("/");
     } catch (error) {
       console.log(error);
     }

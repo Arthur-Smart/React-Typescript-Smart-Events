@@ -4,9 +4,15 @@ import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 
 const Navbar = () => {
-  const { dispatch } = useContext(ThemeContext);
+  const { state, dispatch } = useContext(ThemeContext);
   return (
-    <nav className="navbar bg-[#E5E6E9] flex items-center justify-center">
+    <nav
+      className={
+        state.isDarkMode == true
+          ? "navbar bg-black box-shadow flex items-center justify-center"
+          : "navbar bg-[#E5E6E9] flex items-center justify-center"
+      }
+    >
       <div className="container flex items-center justify-between">
         <div>
           <Link to="/">
@@ -17,7 +23,11 @@ const Navbar = () => {
         </div>
         <div className="flex items-center">
           <div onClick={() => dispatch({ type: "TOGGLE_THEME" })}>
-            <i className="fa-solid fa-moon text-2xl"></i>
+            {state.isDarkMode == true ? (
+              <i className="fa-solid fa-sun text-2xl text-yellow-400 cursor-pointer"></i>
+            ) : (
+              <i className="fa-solid fa-moon text-2xl cursor-pointer"></i>
+            )}
           </div>
           <div className="ml-4">
             <Link to="/signin">

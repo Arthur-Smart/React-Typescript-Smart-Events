@@ -4,7 +4,7 @@ import "./home.css";
 import { ThemeContext } from "../../context/ThemeContext";
 
 const Home = () => {
-  const { state, dispatch } = useContext(ThemeContext);
+  const { state } = useContext(ThemeContext);
   console.log(state);
   return (
     <div className="w-full flex flex-col items-center justify-center py-6">
@@ -12,7 +12,13 @@ const Home = () => {
         <h1 className="font-bold text-transparent text-3xl bg-clip-text bg-gradient-to-r from-indigo-900 to-blue-600">
           Smart Events Hub.
         </h1>
-        <h1 className="font-bold text-3xl">
+        <h1
+          className={
+            state.isDarkMode == true
+              ? "text-white font-bold text-3xl"
+              : "font-bold text-3xl"
+          }
+        >
           Transforming Gatherings with Intelligence
         </h1>
         <p className="text-[#333333]">

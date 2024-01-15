@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Event from "../event/Event";
 import "./events.css";
 import AxiosRequest from "../../AxiosRequest";
 import { IEvent } from "../../interfaces/EventInterface";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const Events = () => {
+  const { state } = useContext(ThemeContext);
+
   const [events, setEvents] = useState<IEvent[]>([]);
   const [filters, setFilters] = useState<IEvent[]>();
   const [interest, setInterest] = useState<string>("");
@@ -74,7 +77,11 @@ const Events = () => {
           </select>
           <button
             onClick={() => filterFun()}
-            className="filter-btn font-semibold px-4 py-2 rounded-md border-gray-200 border-[1px] ml-2"
+            className={
+              state.isDarkMode
+                ? "filter-btn font-semibold px-4 py-2 rounded-md border-gray-200 border-[1px] ml-2 text-white "
+                : "filter-btn font-semibold px-4 py-2 rounded-md border-gray-200 border-[1px] ml-2"
+            }
           >
             Filter Events
           </button>

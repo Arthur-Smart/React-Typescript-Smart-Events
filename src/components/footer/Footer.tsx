@@ -1,6 +1,9 @@
+import { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 import "./footer.css";
 
 const Footer = () => {
+  const { state } = useContext(ThemeContext);
   return (
     <footer className="bg-[#E5E6E9] w-full flex items-center justify-center py-4">
       <div className="container flex flex-col items-center justify-center">

@@ -12,7 +12,7 @@ import { useContext } from "react";
 
 function App() {
   const user: boolean = true;
-  const { state, dispatch } = useContext(ThemeContext);
+  const { state } = useContext(ThemeContext);
   return (
     <main className={state.isDarkMode === true ? "dark" : ""}>
       <BrowserRouter>

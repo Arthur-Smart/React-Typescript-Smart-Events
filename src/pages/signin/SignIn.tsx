@@ -4,6 +4,8 @@ import { IAuth } from "../../interfaces/AuthInterface";
 import AxiosRequest from "../../AxiosRequest";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../../context/ThemeContext";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignIn = () => {
   const { state } = useContext(ThemeContext);
@@ -29,8 +31,12 @@ const SignIn = () => {
       });
 
       localStorage.setItem("@auth", JSON.stringify(data));
-      // navigate("/");
-      window.location.replace("/");
+      toast.success("Signed in successfully!", {
+        position: "top-right",
+      });
+      setTimeout(() => {
+        window.location.replace("/");
+      }, 3000);
     } catch (error) {
       console.log(error);
     }
@@ -100,6 +106,7 @@ const SignIn = () => {
           </Link>
         </p>
       </form>
+      <ToastContainer />
     </section>
   );
 };

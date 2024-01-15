@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import "./navbar.css";
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Navbar = () => {
   const { state, dispatch } = useContext(ThemeContext);
@@ -10,7 +12,12 @@ const Navbar = () => {
   // Logout a user
   const handleLogout = () => {
     localStorage.removeItem("@auth");
-    window.location.replace("/");
+    toast.success("Signed out successfully !", {
+      position: "top-right",
+    });
+    setTimeout(() => {
+      window.location.replace("/");
+    }, 3500);
   };
   return (
     <nav
@@ -54,6 +61,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </nav>
   );
 };

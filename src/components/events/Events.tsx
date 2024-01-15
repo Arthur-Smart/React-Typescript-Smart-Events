@@ -4,6 +4,8 @@ import "./events.css";
 import AxiosRequest from "../../AxiosRequest";
 import { IEvent } from "../../interfaces/EventInterface";
 import { ThemeContext } from "../../context/ThemeContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Events = () => {
   const { state } = useContext(ThemeContext);
@@ -25,8 +27,17 @@ const Events = () => {
     const filteredEvents = events.filter(
       (e) => e.category.includes(interest) && e.location.includes(location)
     );
+
+    if (interest == "" && location == "") {
+      toast.error("Please select a category and location of interest", {
+        position: "top-right",
+      });
+    }
+
     if (filteredEvents.length === 0) {
-      alert("No matching events found!");
+      toast.error("0 results for your search !", {
+        position: "top-right",
+      });
     }
     setFilters(filteredEvents);
   };
@@ -89,8 +100,12 @@ const Events = () => {
       </div>
 
       <div className="h-px bg-[#C5C5C5] w-full"></div>
+      <p className="text-[15px] text-[#3498db] mt-4">
+        <i className="fa-solid fa-circle-exclamation"></i> Only Authorized users
+        can view the event details. Please login
+      </p>
 
-      <div className="events-wrapper w-full mt-4">
+      <div className="events-wrapper w-full mt-[2px]">
         {filters && filters.length > 0
           ? (filters ?? []).map((event) => (
               <Event
@@ -106,6 +121,7 @@ const Events = () => {
             ))}
         {events.length === 0 && <p>Loading...</p>}
       </div>
+      <ToastContainer />
     </div>
   );
 };

@@ -9,6 +9,8 @@ const Events = () => {
   const [filters, setFilters] = useState<IEvent[]>();
   const [interest, setInterest] = useState<string>("");
   const [location, setLocation] = useState<string>("");
+  console.log(filters);
+  console.log(events);
 
   useEffect((): void => {
     const fetchEvents = async (): Promise<void> => {
@@ -26,7 +28,11 @@ const Events = () => {
   };
 
   const clearFilters = () => {
-    window.location.reload();
+    // window.location.reload();
+    setInterest("");
+    setLocation("");
+    setFilters([]);
+    setEvents(events);
   };
 
   return (
@@ -43,6 +49,7 @@ const Events = () => {
         </div>
         <div>
           <select
+            value={interest}
             onChange={(e) => setInterest(e.target.value)}
             className="select-input border-gray-200 rounded-md py-2 px-4 outline-0 text-gray-500 text-base"
           >
@@ -53,6 +60,7 @@ const Events = () => {
             <option value="entertainment">Entertainment</option>
           </select>
           <select
+            value={location}
             onChange={(e) => setLocation(e.target.value)}
             className="select-input border-gray-200 rounded-md py-2 px-4 outline-0 text-gray-500 text-base ml-2"
           >
@@ -75,7 +83,7 @@ const Events = () => {
       <div className="h-px bg-[#C5C5C5] w-full"></div>
 
       <div className="events-wrapper w-full mt-4">
-        {filters
+        {filters?.length
           ? (filters ?? []).map((event) => (
               <Event
                 key={event._id}

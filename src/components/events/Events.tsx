@@ -58,15 +58,18 @@ const Events = () => {
     <div>
       <div className="h-px bg-[#C5C5C5] w-full"></div>
       <div className="filter-btn__tab py-2 flex items-center justify-between">
-        <div>
+        <div className="filter-container__left">
           <button
             onClick={clearFilters}
-            className="rounded-md text-white bg-[#492F6A] font-semibold px-4 py-2"
+            className="rounded-md all-events__btn text-white bg-[#492F6A] font-semibold px-4 py-2"
           >
             All Events
           </button>
         </div>
-        <div>
+        <p className="filter-option text-base font-semibold text-[#333333]">
+          Or fillter
+        </p>
+        <div className="flex filter-container__right">
           <select
             value={interest}
             onChange={(e) => setInterest(e.target.value)}

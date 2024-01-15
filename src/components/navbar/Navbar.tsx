@@ -23,8 +23,8 @@ const Navbar = () => {
     <nav
       className={
         state.isDarkMode == true
-          ? "navbar bg-black box-shadow flex items-center justify-center"
-          : "navbar bg-[#E5E6E9] flex items-center justify-center"
+          ? "navbar bg-black box-shadow flex items-center justify-center px-4"
+          : "navbar bg-[#E5E6E9] flex items-center justify-center px-4"
       }
     >
       <div className="container flex items-center justify-between">

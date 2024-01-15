@@ -61,37 +61,37 @@ const EventPage = () => {
               )}
             </div>
           </section>
-          <section className="container py-3">
+          <section className="container py-3 px-4">
             <h1 className="text-xl font-semibold text-[#333333]">
               {event?.title}
             </h1>
             <div className="icons flex items-center justify-between py-2">
-              <p className="text-gray-400 text-base">
+              <p className="text-gray-400 text-base mb-2">
                 <i className="fa-solid fa-calendar-days"></i> {event?.eventDay}
               </p>
-              <p className="text-gray-400 text-base">
+              <p className="text-gray-400 text-base mb-2">
                 <i className="fa-solid fa-location-dot"></i> {event?.location}
               </p>
-              <p className="text-gray-400 text-base">
+              <p className="text-gray-400 text-base mb-2">
                 <i className="fa-regular fa-clock"></i> {event?.eventTime}
               </p>
-              <p className="text-gray-400 text-base">
+              <p className="text-gray-400 text-base mb-2">
                 <i className="fa-solid fa-user"></i> Organized By:
                 {event?.organizer}
               </p>
-              <p className="text-gray-400 text-base">
+              <p className="text-gray-400 text-base mb-2">
                 <i className="fa-solid fa-flag"></i> {event?.venue}
               </p>
             </div>
           </section>
-          <section className="container">
+          <section className="container px-4">
             <div
               className={`rounded-full w-max ${event?.category} text-white py-[5px] px-4`}
             >
               {event?.category}
             </div>
           </section>
-          <section className="container py-5">
+          <section className="container py-5 px-4">
             <p className="text-[#9A9A9A] text-[15px]">{event?.description}</p>
           </section>
         </>

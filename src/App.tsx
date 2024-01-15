@@ -12,7 +12,7 @@ import { useContext } from "react";
 
 function App() {
   // const user: string = JSON.parse(localStorage.getItem("@auth") || "{}").token;
-  const user: string = JSON.parse(localStorage.getItem("@auth")!);
+  const user = JSON.parse(localStorage.getItem("@auth")!);
 
   const { state } = useContext(ThemeContext);
   return (

@@ -6,9 +6,12 @@ import { IEvent } from "../../interfaces/EventInterface";
 import { ThemeContext } from "../../context/ThemeContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Lottie from "lottie-react";
+import Loader from "./loader.json";
 
 const Events = () => {
   const { state } = useContext(ThemeContext);
+  const user = JSON.parse(localStorage.getItem("@auth")!);
 
   const [events, setEvents] = useState<IEvent[]>([]);
   const [filters, setFilters] = useState<IEvent[]>();
@@ -100,12 +103,14 @@ const Events = () => {
       </div>
 
       <div className="h-px bg-[#C5C5C5] w-full"></div>
-      <p className="text-[15px] text-[#3498db] mt-4">
-        <i className="fa-solid fa-circle-exclamation"></i> Only Authorized users
-        can view the event details. Please login
-      </p>
+      {!user && (
+        <p className="text-[15px] text-[#3498db] mt-4">
+          <i className="fa-solid fa-circle-exclamation"></i> Only Authorized
+          users can view the event details. Please login
+        </p>
+      )}
 
-      <div className="events-wrapper w-full mt-[2px]">
+      <div className="events-wrapper w-full mt-4">
         {filters && filters.length > 0
           ? (filters ?? []).map((event) => (
               <Event
@@ -119,7 +124,17 @@ const Events = () => {
                 {...event}
               />
             ))}
-        {events.length === 0 && <p>Loading...</p>}
+        {events.length === 0 && (
+          <div className="container flex flex-col items-center justify-center pt-10 h-20 mb-10">
+            <div style={{ width: "20%" }}>
+              <Lottie
+                loop={true}
+                animationData={Loader}
+              />
+            </div>
+            <p className="-mt-[120px]">Please hold on a moment...</p>
+          </div>
+        )}
       </div>
       <ToastContainer />
     </div>

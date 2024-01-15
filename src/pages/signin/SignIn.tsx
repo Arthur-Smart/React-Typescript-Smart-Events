@@ -62,7 +62,7 @@ const SignIn = () => {
   };
 
   return (
-    <section className="signin w-full flex flex-col items-center justify-center">
+    <section className="signin w-full flex flex-col items-center justify-center px-4">
       <h1
         className={
           state.isDarkMode == true

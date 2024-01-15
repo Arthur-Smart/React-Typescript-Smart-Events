@@ -62,7 +62,13 @@ const EventPage = () => {
             </div>
           </section>
           <section className="container py-3 px-4">
-            <h1 className="text-xl font-semibold text-[#333333]">
+            <h1
+              className={
+                state.isDarkMode == true
+                  ? "text-[#666] text-xl font-semibold"
+                  : "text-xl font-semibold text-[#333333]"
+              }
+            >
               {event?.title}
             </h1>
             <div className="icons flex items-center justify-between py-2">

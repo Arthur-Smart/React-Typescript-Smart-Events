@@ -7,10 +7,7 @@
 }
 
 .signin-form {
-    width: clamp(300px, 35%, 700px);
-    /* box-shadow: 5px 8px 10px -7px rgba(0, 0, 0, 0.38);
-        -webkit-box-shadow: 5px 8px 10px -7px rgba(0, 0, 0, 0.38);
-        -moz-box-shadow: 5px 8px 10px -7px rgba(0, 0, 0, 0.38); */
+    width: 35%;
 }
 
 .is-dark{
@@ -19,4 +16,23 @@
 
 .signin-form input{
     background-color: transparent;
+}
+
+@media screen and (max-width:1000px){
+.signin-form {
+        width: 55%;
+    }
+ .warning {
+     width: 55% !important;
+ }
+}
+
+@media screen and (max-width:600px) {
+    .signin-form {
+        width: 100%;
+    }
+
+    .warning {
+        width: 100% !important;
+    }
 }

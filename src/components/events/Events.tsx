@@ -66,7 +66,13 @@ const Events = () => {
             All Events
           </button>
         </div>
-        <p className="filter-option text-base font-semibold text-[#333333]">
+        <p
+          className={
+            state.isDarkMode == true
+              ? "text-[#666] filter-option text-base font-semibold"
+              : "filter-option text-base font-semibold text-[#333333]"
+          }
+        >
           Or fillter
         </p>
         <div className="flex filter-container__right">

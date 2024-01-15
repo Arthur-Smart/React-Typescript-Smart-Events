@@ -20,7 +20,13 @@ const Home = () => {
         >
           Transforming Gatherings with Intelligence
         </h1>
-        <p className="text-[#333333] home-desc">
+        <p
+          className={
+            state.isDarkMode == true
+              ? "text-[#666] home-desc"
+              : "text-[#333333] home-desc"
+          }
+        >
           Elevate your events to new heights with cutting-edge technology and
           seamless intelligence, where every gathering becomes a transformative
           experience at the Smart Events Hub.

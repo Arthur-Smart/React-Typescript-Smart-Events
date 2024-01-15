@@ -22,7 +22,13 @@ const Event = (props: IEvent) => {
         />
         <div className="event-details__home py-2 px-2">
           <div className="detail-container w-full flex items-center justify-between">
-            <h1 className="text-[#333333] font-semibold text-[16px]">
+            <h1
+              className={
+                state.isDarkMode == true
+                  ? "text-[#666] font-semibold text-[16px]"
+                  : "text-[#333333] font-semibold text-[16px]"
+              }
+            >
               {props.title}
             </h1>
 

@@ -1,8 +1,13 @@
 import { useState } from "react";
 import "./signup.css";
 import { IAuth } from "../../interfaces/AuthInterface";
+import { IError } from "../../interfaces/ErrorInterface";
+import AxiosRequest from "../../AxiosRequest";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+
   const [authDetails, setAuthDetails] = useState<IAuth>({
     name: "",
     email: "",
@@ -10,14 +15,39 @@ const SignUp = () => {
     password2: "",
   });
 
+  const [error, setError] = useState<IError>({
+    errorMessage: "eeeee",
+  });
+
+  // console.log(error.errorMessage);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setAuthDetails((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSignup = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleSignup = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    console.log(authDetails);
+    try {
+      const { name, email, password, password2 } = authDetails;
+
+      if (password !== password2) {
+        setError((prev) => ({
+          ...prev,
+          errorMessage: "Password do not match",
+        }));
+      }
+
+      await AxiosRequest.post("auth/signup", {
+        name,
+        email,
+        password,
+      });
+      navigate("/signin");
+    } catch (error) {
+      // setError((prev) => ({...prev, errorMessage:error}))
+    }
+    console.log("it works");
   };
 
   return (

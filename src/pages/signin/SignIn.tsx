@@ -1,6 +1,39 @@
+import { useState } from "react";
 import "./signin.css";
+import { IAuth } from "../../interfaces/AuthInterface";
+import AxiosRequest from "../../AxiosRequest";
+import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
+  const navigate = useNavigate();
+
+  const [authDetails, setAuthDetails] = useState<IAuth>({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setAuthDetails((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSignin = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    try {
+      const { email, password } = authDetails;
+
+      const { data } = await AxiosRequest.post("auth/signin", {
+        email,
+        password,
+      });
+
+      localStorage.setItem("@auth", JSON.stringify(data));
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <section className="signin w-full flex flex-col items-center justify-center">
       <h1 className="font-bold text-[#333333] text-xl">Sign in</h1>
@@ -18,7 +51,9 @@ const SignIn = () => {
           <i className="fa-solid fa-envelope text-xl text-[#9A9A9A]"></i>
           <input
             type="text"
+            name="email"
             placeholder="Enter email"
+            onChange={handleChange}
             className="w-11/12 ml-3 outline-0"
           />
         </div>
@@ -30,11 +65,16 @@ const SignIn = () => {
           <i className="fa-solid fa-lock text-xl text-[#9A9A9A]"></i>
           <input
             type="password"
+            name="password"
             placeholder="Enter password"
+            onChange={handleChange}
             className="w-11/12 ml-3 outline-0"
           />
         </div>
-        <button className="rounded-md w-full py-2 px-3 bg-[#849BF6] text-white mt-6">
+        <button
+          onClick={handleSignin}
+          className="rounded-md w-full py-2 px-3 bg-[#849BF6] text-white mt-6"
+        >
           Sign in
         </button>
         <p className="mt-3 text-[#9A9A9A]">

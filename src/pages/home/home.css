@@ -3,6 +3,11 @@
     border-width:1px;
 }
 
+.select-input:disabled option[disabled]{
+    color: #888;
+        cursor: not-allowed;
+}
+
 .select-input:focus {
 outline: none;
     border-color: #492F6A;

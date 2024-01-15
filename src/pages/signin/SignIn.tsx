@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./signin.css";
 import { IAuth } from "../../interfaces/AuthInterface";
 import AxiosRequest from "../../AxiosRequest";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -79,7 +79,9 @@ const SignIn = () => {
         </button>
         <p className="mt-3 text-[#9A9A9A]">
           Don't have an account?{" "}
-          <span className="underline cursor-pointer">Sign up</span>
+          <Link to="/signup">
+            <span className="underline cursor-pointer">Sign up</span>
+          </Link>
         </p>
       </form>
     </section>

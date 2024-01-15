@@ -17,38 +17,6 @@ const Home = () => {
           experience at the Smart Events Hub.
         </p>
       </section>
-      {/* Filter section */}
-      <section className="container mt-2">
-        <div className="h-px bg-[#C5C5C5] w-full"></div>
-        <div className="filter-btn__tab py-2 flex items-center justify-between">
-          <div>
-            <button className="rounded-md text-white bg-[#492F6A] font-semibold px-4 py-2">
-              All Events
-            </button>
-          </div>
-          <div>
-            <select className="select-input border-gray-200 rounded-md py-2 px-4 outline-0 text-gray-500 text-base">
-              <option>Select your interest</option>
-              <option value="business">Business</option>
-              <option value="technology">Technology</option>
-              <option value="health">Health</option>
-              <option value="entertainment">Entertainment</option>
-            </select>
-            <select className="select-input border-gray-200 rounded-md py-2 px-4 outline-0 text-gray-500 text-base ml-2">
-              <option>Select location</option>
-              <option value="nairobi">Nairobi</option>
-              <option value="nakuru">Nakuru</option>
-              <option value="mombasa">Mombasa</option>
-              <option value="eldoret">Eldoret</option>
-              <option value="kisumu">Kisumu</option>
-            </select>
-            <button className="filter-btn font-semibold px-4 py-2 rounded-md border-gray-200 border-[1px] ml-2">
-              Filter Events
-            </button>
-          </div>
-        </div>
-        <div className="h-px bg-[#C5C5C5] w-full"></div>
-      </section>
 
       {/* Events section */}
       <section className="container py-4">

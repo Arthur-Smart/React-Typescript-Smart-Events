@@ -3,7 +3,7 @@ import "./signup.css";
 import { IAuth } from "../../interfaces/AuthInterface";
 import { IError } from "../../interfaces/ErrorInterface";
 import AxiosRequest from "../../AxiosRequest";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -125,7 +125,10 @@ const SignUp = () => {
         </button>
         <p className="mt-3 text-[#9A9A9A]">
           Already have an account?{" "}
-          <span className="underline cursor-pointer">Sign in</span>
+          <Link to="/signin">
+            {" "}
+            <span className="underline cursor-pointer">Sign in</span>
+          </Link>
         </p>
       </form>
     </section>

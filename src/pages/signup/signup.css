@@ -12,3 +12,7 @@
         -webkit-box-shadow: 5px 8px 10px -7px rgba(0, 0, 0, 0.38);
         -moz-box-shadow: 5px 8px 10px -7px rgba(0, 0, 0, 0.38); */
 }
+
+.signup-form input{
+    background-color: transparent;
+}

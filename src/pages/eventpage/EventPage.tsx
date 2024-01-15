@@ -60,7 +60,9 @@ const EventPage = () => {
         </div>
       </section>
       <section className="container">
-        <div className="rounded-full w-max bg-[#8F93F5] text-white py-[5px] px-4">
+        <div
+          className={`rounded-full w-max ${event?.category} text-white py-[5px] px-4`}
+        >
           {event?.category}
         </div>
       </section>

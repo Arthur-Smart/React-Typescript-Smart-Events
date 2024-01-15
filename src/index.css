@@ -10,6 +10,7 @@ body{
 
 .dark{
     background-color: black;
+    transition: all ease-in .5s;
 }
 
 @tailwind base;

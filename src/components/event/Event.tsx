@@ -1,11 +1,20 @@
 import { Link } from "react-router-dom";
 import { IEvent } from "../../interfaces/EventInterface";
 import "./event.css";
+import { ThemeContext } from "../../context/ThemeContext";
+import { useContext } from "react";
 
 const Event = (props: IEvent) => {
+  const { state } = useContext(ThemeContext);
   return (
     <Link to={`/event/${props._id}`}>
-      <div className="event-container flex flex-col rounded-md overflow-hidden">
+      <div
+        className={
+          state.isDarkMode == true
+            ? "event-is-dark event-container flex flex-col rounded-md overflow-hidden"
+            : "event-container flex flex-col rounded-md overflow-hidden"
+        }
+      >
         <img
           className="event-image__home"
           src={props.image}

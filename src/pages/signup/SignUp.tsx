@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./signup.css";
 import { IAuth } from "../../interfaces/AuthInterface";
 import { IError } from "../../interfaces/ErrorInterface";
 import AxiosRequest from "../../AxiosRequest";
 import { Link, useNavigate } from "react-router-dom";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const SignUp = () => {
+  const { state } = useContext(ThemeContext);
   const navigate = useNavigate();
 
   const [authDetails, setAuthDetails] = useState<IAuth>({
@@ -52,14 +54,28 @@ const SignUp = () => {
 
   return (
     <section className="signup w-full flex flex-col items-center justify-center">
-      <h1 className="font-bold text-[#333333] text-xl">Sign up</h1>
+      <h1
+        className={
+          state.isDarkMode
+            ? "font-bold text-white text-xl"
+            : "font-bold text-[#333333] text-xl"
+        }
+      >
+        Sign up
+      </h1>
       <div className="warning bg-[#DBDBDB] rounded-md px-4 py-2 mt-2">
         <p className="text-[14px]">
           <i className="fa-solid fa-triangle-exclamation text-orange-400"></i>{" "}
           Please fill all the input fields
         </p>
       </div>
-      <form className="signup-form rounded-md px-3 py-5 mt-7 flex flex-col items-center justify-center border-gray-200 border-[1.5px]">
+      <form
+        className={
+          state.isDarkMode == true
+            ? "is-dark signup-form rounded-md px-3 py-5 mt-7 flex flex-col items-center justify-center border-gray-200 border-[1.5px]"
+            : "signup-form rounded-md px-3 py-5 mt-7 flex flex-col items-center justify-center border-gray-200 border-[1.5px]"
+        }
+      >
         <label className="self-start font-bold text-[#333333] text-base">
           Name
         </label>

@@ -12,3 +12,11 @@
         -webkit-box-shadow: 5px 8px 10px -7px rgba(0, 0, 0, 0.38);
         -moz-box-shadow: 5px 8px 10px -7px rgba(0, 0, 0, 0.38); */
 }
+
+.is-dark{
+    background-color: white;
+}
+
+.signin-form input{
+    background-color: transparent;
+}

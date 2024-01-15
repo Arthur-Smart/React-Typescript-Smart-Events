@@ -5,7 +5,7 @@ import AxiosRequest from "../../AxiosRequest";
 import { IEvent } from "../../interfaces/EventInterface";
 import Lottie from "lottie-react";
 import Loader from "../../components/events/loader.json";
-import Loader2 from "../../components/events/loader2.json";
+import Loader2 from "../../components/events/Loader2.json";
 import { ThemeContext } from "../../context/ThemeContext";
 
 const EventPage = () => {

@@ -1,4 +1,5 @@
 // import { ReactNode } from "react";
+// import { JSXElementConstructor } from "react";
 import { Navigate } from "react-router-dom";
 
 // type PropsType = {
@@ -6,7 +7,8 @@ import { Navigate } from "react-router-dom";
 //   user:{};
 // }
 
-const ProtectedRoute = ({ user, children }: never) => {
+const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
+  const user = JSON.parse(localStorage.getItem("@auth")!);
   if (!user) {
     return (
       <Navigate

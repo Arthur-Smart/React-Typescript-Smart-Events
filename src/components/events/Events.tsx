@@ -8,7 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Lottie from "lottie-react";
 import Loader from "./loader.json";
-import Loader2 from "./loader2.json";
+import Loader2 from "./Loader2.json";
 
 const Events = () => {
   const { state } = useContext(ThemeContext);

@@ -12,7 +12,6 @@ import { useContext } from "react";
 
 function App() {
   // const user: string = JSON.parse(localStorage.getItem("@auth") || "{}").token;
-  const user = JSON.parse(localStorage.getItem("@auth")!);
 
   const { state } = useContext(ThemeContext);
   return (
@@ -36,7 +35,7 @@ function App() {
           <Route
             path="/event/:id"
             element={
-              <ProtectedRoute user={user}>
+              <ProtectedRoute>
                 <EventPage />
               </ProtectedRoute>
             }

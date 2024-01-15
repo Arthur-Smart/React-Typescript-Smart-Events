@@ -24,6 +24,9 @@ const Events = () => {
     const filteredEvents = events.filter(
       (e) => e.category.includes(interest) && e.location.includes(location)
     );
+    if (filteredEvents.length === 0) {
+      alert("No matching events found!");
+    }
     setFilters(filteredEvents);
   };
 
@@ -83,7 +86,7 @@ const Events = () => {
       <div className="h-px bg-[#C5C5C5] w-full"></div>
 
       <div className="events-wrapper w-full mt-4">
-        {filters?.length
+        {filters && filters.length > 0
           ? (filters ?? []).map((event) => (
               <Event
                 key={event._id}
@@ -96,6 +99,7 @@ const Events = () => {
                 {...event}
               />
             ))}
+        {events.length === 0 && <p>Loading...</p>}
       </div>
     </div>
   );

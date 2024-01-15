@@ -8,6 +8,10 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
+.dark{
+    background-color: black;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

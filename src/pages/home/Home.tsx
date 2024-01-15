@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import Events from "../../components/events/Events";
 import "./home.css";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const Home = () => {
+  const { state, dispatch } = useContext(ThemeContext);
+  console.log(state);
   return (
     <div className="w-full flex flex-col items-center justify-center py-6">
       <section className="container py-4">

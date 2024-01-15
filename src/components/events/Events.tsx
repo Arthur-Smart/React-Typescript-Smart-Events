@@ -9,8 +9,6 @@ const Events = () => {
   const [filters, setFilters] = useState<IEvent[]>();
   const [interest, setInterest] = useState<string>("");
   const [location, setLocation] = useState<string>("");
-  console.log(filters);
-  console.log(events);
 
   useEffect((): void => {
     const fetchEvents = async (): Promise<void> => {

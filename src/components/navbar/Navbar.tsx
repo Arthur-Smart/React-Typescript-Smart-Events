@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import "./navbar.css";
+import { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const Navbar = () => {
+  const { dispatch } = useContext(ThemeContext);
   return (
     <nav className="navbar bg-[#E5E6E9] flex items-center justify-center">
       <div className="container flex items-center justify-between">
@@ -13,7 +16,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="flex items-center">
-          <div>
+          <div onClick={() => dispatch({ type: "TOGGLE_THEME" })}>
             <i className="fa-solid fa-moon text-2xl"></i>
           </div>
           <div className="ml-4">

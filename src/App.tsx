@@ -7,11 +7,14 @@ import Footer from "./components/footer/Footer";
 import EventPage from "./pages/eventpage/EventPage";
 import ProtectedRoute from "./ProtectedRoute";
 import SignUp from "./pages/signup/SignUp";
+import { ThemeContext } from "./context/ThemeContext";
+import { useContext } from "react";
 
 function App() {
   const user: boolean = true;
+  const { state, dispatch } = useContext(ThemeContext);
   return (
-    <>
+    <main className={state.isDarkMode === true ? "dark" : ""}>
       <BrowserRouter>
         <Navbar />
         <Routes>
@@ -39,7 +42,7 @@ function App() {
         </Routes>
         <Footer />
       </BrowserRouter>
-    </>
+    </main>
   );
 }
 

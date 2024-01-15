@@ -1,12 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./eventpage.css";
 import AxiosRequest from "../../AxiosRequest";
 import { IEvent } from "../../interfaces/EventInterface";
 import Lottie from "lottie-react";
 import Loader from "../../components/events/loader.json";
+import Loader2 from "../../components/events/loader2.json";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const EventPage = () => {
+  const { state } = useContext(ThemeContext);
+
   const { id } = useParams();
   const [event, setEvent] = useState<IEvent>();
   const token = JSON.parse(localStorage.getItem("@auth") || "{}").token;
@@ -27,10 +31,17 @@ const EventPage = () => {
     <main className="event-page w-full flex flex-col items-center justify-center">
       {!event ? (
         <div style={{ width: "20%" }}>
-          <Lottie
-            loop={true}
-            animationData={Loader}
-          />
+          {state.isDarkMode == true ? (
+            <Lottie
+              loop={true}
+              animationData={Loader2}
+            />
+          ) : (
+            <Lottie
+              loop={true}
+              animationData={Loader}
+            />
+          )}
         </div>
       ) : (
         <>

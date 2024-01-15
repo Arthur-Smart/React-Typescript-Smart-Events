@@ -8,6 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Lottie from "lottie-react";
 import Loader from "./loader.json";
+import Loader2 from "./loader2.json";
 
 const Events = () => {
   const { state } = useContext(ThemeContext);
@@ -127,12 +128,27 @@ const Events = () => {
         {events.length === 0 && (
           <div className="container flex flex-col items-center justify-center pt-10 h-20 mb-10">
             <div style={{ width: "20%" }}>
-              <Lottie
-                loop={true}
-                animationData={Loader}
-              />
+              {state.isDarkMode == true ? (
+                <Lottie
+                  loop={true}
+                  animationData={Loader2}
+                />
+              ) : (
+                <Lottie
+                  loop={true}
+                  animationData={Loader}
+                />
+              )}
             </div>
-            <p className="-mt-[120px]">Please hold on a moment...</p>
+            <p
+              className={
+                state.isDarkMode == true
+                  ? "-mt-[120px] text-white"
+                  : "-mt-[120px]"
+              }
+            >
+              Please hold on a moment...
+            </p>
           </div>
         )}
       </div>

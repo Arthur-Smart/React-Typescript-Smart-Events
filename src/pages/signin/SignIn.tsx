@@ -10,6 +10,9 @@ import "react-toastify/dist/ReactToastify.css";
 const SignIn = () => {
   const { state } = useContext(ThemeContext);
 
+  const [loader, setLoader] = useState<boolean>(false);
+  const [error, setError] = useState<unknown>();
+
   const [authDetails, setAuthDetails] = useState<IAuth>({
     email: "",
     password: "",
@@ -22,8 +25,17 @@ const SignIn = () => {
 
   const handleSignin = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+
+    setLoader(true);
     try {
       const { email, password } = authDetails;
+      if (email == "" || password == "") {
+        toast.error("Please fill all fields", {
+          position: "top-right",
+        });
+
+        return;
+      }
 
       const { data } = await AxiosRequest.post("auth/signin", {
         email,
@@ -34,11 +46,18 @@ const SignIn = () => {
       toast.success("Signed in successfully!", {
         position: "top-right",
       });
+      setLoader(false);
       setTimeout(() => {
         window.location.replace("/");
       }, 3000);
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      setError(err);
+      if (error) {
+        toast.error(`Invalid credentials`, {
+          position: "top-right",
+        });
+        setLoader(false);
+      }
     }
   };
 
@@ -97,7 +116,7 @@ const SignIn = () => {
           onClick={handleSignin}
           className="rounded-md w-full py-2 px-3 bg-[#849BF6] text-white mt-6"
         >
-          Sign in
+          {loader ? <p>Wait a moment...</p> : <p>Sign in</p>}
         </button>
         <p className="mt-3 text-[#9A9A9A]">
           Don't have an account?{" "}

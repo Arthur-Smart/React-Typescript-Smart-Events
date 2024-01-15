@@ -5,6 +5,8 @@ import { IError } from "../../interfaces/ErrorInterface";
 import AxiosRequest from "../../AxiosRequest";
 import { Link, useNavigate } from "react-router-dom";
 import { ThemeContext } from "../../context/ThemeContext";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignUp = () => {
   const { state } = useContext(ThemeContext);
@@ -17,11 +19,8 @@ const SignUp = () => {
     password2: "",
   });
 
-  const [error, setError] = useState<IError>({
-    errorMessage: "eeeee",
-  });
-
-  // console.log(error.errorMessage);
+  const [loader, setLoader] = useState<boolean>(false);
+  const [error, setError] = useState<unknown>();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -30,14 +29,25 @@ const SignUp = () => {
 
   const handleSignup = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    setLoader(true);
     try {
       const { name, email, password, password2 } = authDetails;
 
+      if (email == "" || email == "" || password == "" || password2 == "") {
+        toast.error("Please fill all fields", {
+          position: "top-right",
+        });
+        setLoader(false);
+
+        return;
+      }
+
       if (password !== password2) {
-        setError((prev) => ({
-          ...prev,
-          errorMessage: "Password do not match",
-        }));
+        toast.error("Password do not match", {
+          position: "top-right",
+        });
+        setLoader(false);
+        return;
       }
 
       await AxiosRequest.post("auth/signup", {
@@ -46,8 +56,14 @@ const SignUp = () => {
         password,
       });
       navigate("/signin");
-    } catch (error) {
-      // setError((prev) => ({...prev, errorMessage:error}))
+    } catch (err) {
+      setError(err);
+      if (error) {
+        toast.error(`Invalid credentials`, {
+          position: "top-right",
+        });
+        setLoader(false);
+      }
     }
     console.log("it works");
   };
@@ -137,7 +153,7 @@ const SignUp = () => {
           onClick={handleSignup}
           className="rounded-md w-full py-2 px-3 bg-[#849BF6] text-white mt-6"
         >
-          Sign up
+          {loader ? <p>Wait a moment...</p> : <p>Sign up</p>}
         </button>
         <p className="mt-3 text-[#9A9A9A]">
           Already have an account?{" "}
@@ -147,6 +163,7 @@ const SignUp = () => {
           </Link>
         </p>
       </form>
+      <ToastContainer />
     </section>
   );
 };

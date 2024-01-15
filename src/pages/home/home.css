@@ -40,3 +40,10 @@ outline: none;
 .filter-btn:hover.filter-btn::before{
     transform: translateX(0);
 }
+
+@media screen  and (max-width:800px){
+    .home-desc{
+        margin-top:15px;
+        font-size: 15px;
+    }
+}

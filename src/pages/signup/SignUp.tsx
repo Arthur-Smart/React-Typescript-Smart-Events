@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import "./signup.css";
 import { IAuth } from "../../interfaces/AuthInterface";
-import { IError } from "../../interfaces/ErrorInterface";
 import AxiosRequest from "../../AxiosRequest";
 import { Link, useNavigate } from "react-router-dom";
 import { ThemeContext } from "../../context/ThemeContext";

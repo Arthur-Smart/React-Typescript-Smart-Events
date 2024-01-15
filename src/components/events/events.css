@@ -4,3 +4,27 @@
         grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
         grid-gap: 7px;
 }
+
+/* @media screen and (max-width:800px){
+    .filter-btn__tab{
+        flex-direction: column;
+    }
+
+    .select-input{
+        width:100%;
+    }
+
+    .all-events-btn{
+        width: 100% !important;
+            margin-top: 10px;
+    }
+
+    .select-container{
+        margin-top:10px;
+    }
+
+    .filter-btn{
+        width:100%;
+        margin-top:10px;
+    }
+} */

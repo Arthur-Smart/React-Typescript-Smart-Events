@@ -103,8 +103,8 @@ const Events = () => {
             onClick={() => filterFun()}
             className={
               state.isDarkMode
-                ? "filter-btn font-semibold px-4 py-2 rounded-md border-gray-200 border-[1px] ml-2 text-white "
-                : "filter-btn font-semibold px-4 py-2 rounded-md border-gray-200 border-[1px] ml-2"
+                ? "filter-btn font-semibold px-4 py-2 rounded-md border-gray-200 border-[1px] md:ml-2 text-white "
+                : "filter-btn font-semibold px-4 py-2 rounded-md border-gray-200 border-[1px] md:ml-2"
             }
           >
             Filter Events

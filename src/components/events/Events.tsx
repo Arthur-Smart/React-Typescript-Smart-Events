@@ -90,7 +90,7 @@ const Events = () => {
           <select
             value={location}
             onChange={(e) => setLocation(e.target.value)}
-            className="select-input border-gray-200 rounded-md py-2 px-4 outline-0 text-gray-500 text-base ml-2"
+            className="select-input border-gray-200 rounded-md py-2 px-4 outline-0 text-gray-500 text-base md:ml-2"
           >
             <option>Select location</option>
             <option value="Nairobi">Nairobi</option>

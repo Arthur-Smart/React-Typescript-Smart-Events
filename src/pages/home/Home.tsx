@@ -24,14 +24,14 @@ const Home = () => {
         animate="animate"
         className="container py-4"
       >
-        <h1 className="font-bold text-transparent text-3xl bg-clip-text bg-gradient-to-r from-indigo-900 to-blue-600">
+        <h1 className="font-bold text-transparent text-[27px] md:text-3xl bg-clip-text bg-gradient-to-r from-indigo-900 to-blue-600">
           Smart Events Hub.
         </h1>
         <h1
           className={
             state?.isDarkMode == true
-              ? "text-white font-bold text-3xl"
-              : "font-bold text-3xl"
+              ? "text-white font-bold text-[27px] md: text-3xl"
+              : "font-bold text-[27px] md: text-3xl"
           }
         >
           Transforming Gatherings with Intelligence

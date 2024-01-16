@@ -64,6 +64,7 @@ const SignIn = () => {
   return (
     <section className="signin w-full flex flex-col items-center justify-center px-4">
       <h1
+        data-testid="title-id"
         className={
           state.isDarkMode == true
             ? " font-bold text-white text-xl"

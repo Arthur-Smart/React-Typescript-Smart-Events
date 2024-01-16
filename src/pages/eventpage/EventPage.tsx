@@ -47,6 +47,7 @@ const EventPage = () => {
         <>
           <section className="event-page-image__container">
             <img
+              loading="lazy"
               src={event?.image}
               alt="The path for a CEO"
               className="event-page-image"

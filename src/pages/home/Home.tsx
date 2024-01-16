@@ -13,7 +13,7 @@ const Home = () => {
         </h1>
         <h1
           className={
-            state.isDarkMode == true
+            state?.isDarkMode == true
               ? "text-white font-bold text-3xl"
               : "font-bold text-3xl"
           }
@@ -22,7 +22,7 @@ const Home = () => {
         </h1>
         <p
           className={
-            state.isDarkMode == true
+            state?.isDarkMode == true
               ? "text-[#666] home-desc"
               : "text-[#333333] home-desc"
           }

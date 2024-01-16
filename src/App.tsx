@@ -15,8 +15,8 @@ function App() {
 
   const { state } = useContext(ThemeContext);
   return (
-    <main className={state.isDarkMode === true ? "dark" : ""}>
-      <BrowserRouter>
+    <BrowserRouter>
+      <main className={state?.isDarkMode == true ? "dark" : ""}>
         <Navbar />
         <Routes>
           <Route
@@ -42,8 +42,8 @@ function App() {
           />
         </Routes>
         <Footer />
-      </BrowserRouter>
-    </main>
+      </main>
+    </BrowserRouter>
   );
 }
 

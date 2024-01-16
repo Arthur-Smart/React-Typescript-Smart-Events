@@ -9,6 +9,7 @@ const Event = (props: IEvent) => {
   return (
     <Link to={`/event/${props._id}`}>
       <div
+        data-testid="event-id"
         className={
           state.isDarkMode == true
             ? "event-is-dark event-container flex flex-col rounded-md overflow-hidden"
@@ -16,6 +17,7 @@ const Event = (props: IEvent) => {
         }
       >
         <img
+          loading="lazy"
           className="event-image__home"
           src={props.image}
           alt="The path for a CEO"
